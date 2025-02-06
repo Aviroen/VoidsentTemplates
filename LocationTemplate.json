@@ -1,0 +1,63 @@
+{
+ "Changes": [
+  {
+   "LogName": "Load {{MAPNAME}}",
+   "Action": "Load",
+   "Priority": "Low",
+   "Target": "Maps/{{ModId}}_{{MAPNAME}}",
+   "FromFile": "Assets/Maps/{{INTERIORORLOCATIONS}}/{{MAPNAME}}.tmx"
+  },
+  {
+   "LogName": "Load {{MAPNAME}} Events",
+   "Action": "Load",
+   "Priority": "Low",
+   "Target": "Data/Events/{{ModId}}_{{MAPNAME}}",
+   "FromFile": "data/blank.json"
+  },
+  {
+   "LogName": "{{MAPNAME}} Data/Location",
+   "Action": "EditData",
+   "Target": "Data/Locations",
+   "Entries": {
+    "{{ModId}}_{{MAPNAME}}": {
+     "DisplayName": "{{i18n:{{MAPNAME}}}}",
+     "DefaultArrivalTile": {
+      "X": "{{XARRIVAL}}",
+      "Y": "{{YARRIVAL}}"
+     },
+     "CreateOnLoad": {
+      "MapPath": "Maps\\{{ModId}}_{{MAPNAME}}",
+      "AlwaysActive": false
+     },
+     "MusicDefault": "{{MUSIC}}",
+     "CustomFields": {
+      "Aviroen.Voidsent_UnsafeForTent": "True"
+     }
+    }
+   }
+  },
+  {
+   "Action": "EditData",
+   "Target": "Mods/CJBok.CheatsMenu/WarpSections",
+   "Entries": {
+    "{{ModId}}_{{AREA}}": {
+     "Id": "{{ModId}}_{{AREA}}",
+     "DisplayName": "{{i18n:{{AREA}}}}"
+    }
+   }
+  },
+  {
+   "Action": "EditData",
+   "Target": "Mods/CJBok.CheatsMenu/Warps",
+   "Entries": {
+    "{{ModId}}_{{MAPNAME}}": {
+     "Id": "{{ModId}}_{{MAPNAME}}",
+     "SectionId": "{{ModId}}_{{AREA}}",
+     "DisplayName": "{{i18n:{{MAPNAME}}}}",
+     "Location": "{{ModId}}_{{MAPNAME}}",
+     "Tile": "{{XARRIVAL}}, {{YARRIVAL}}"
+    }
+   }
+  }
+ ]
+}
